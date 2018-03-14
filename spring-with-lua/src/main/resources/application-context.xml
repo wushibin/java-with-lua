@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean id="message"
           class="lua.learn.Message">
         <property name="message" value="Spring is fun." />
     </bean>
 
+    <bean id="methodLoggerAspect"
+          class="lua.learn.MethodLoggerAspect"></bean>
+
+    <aop:config>
+        <aop:aspect ref="methodLoggerAspect">
+            <aop:pointcut id="logpoint" expression="execution(* lua.learn.Message.*(..)))"></aop:pointcut>
+            <aop:around pointcut-ref="logpoint" method="aroundLog"></aop:around>
+        </aop:aspect>
+    </aop:config>
 </beans>

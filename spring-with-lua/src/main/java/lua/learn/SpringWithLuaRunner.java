@@ -21,6 +21,7 @@ public class SpringWithLuaRunner {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/application-context.xml");
 
         Message message = (Message) applicationContext.getBean("message");
+        message.getMessage();
 
         Globals globals = JsePlatform.standardGlobals();
         LuaValue test = CoerceJavaToLua.coerce(new JavaClassOne());
