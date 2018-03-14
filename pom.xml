@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>java.learn</groupId>
+    <artifactId>java-with-lua</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>Execute the lua in java</name>
+    <description>
+        Parent pom to aggregate modules.
+    </description>
+
+
+  <modules>
+    <module>java-execute-lua</module>
+    <module>spring-with-lua</module>
+  </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.luaj</groupId>
+            <artifactId>luaj-jse</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+    </dependencies>
+
+</project>
